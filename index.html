@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kilangi Jewellery</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+
+<style>
+  /* =========================================
+   1. FONTS & GLOBAL RESET
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+/* =========================================
+   2. TOP BAR (Dark Green Strip)
+   ========================================= */
+.top-bar {
+  width: 100%;
+  height: 44px;
+  background-color: #1C352D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+.top-icons {
+  position: absolute;
+  right: 24px;
+  display: flex;
+  gap: 16px;
+}
+
+.top-icons i {
+  font-size: 20px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* =========================================
+   3. MAIN HEADER & NAVIGATION
+   ========================================= */
+header {
+  /* background-color: black; */
+   background: #fffaf6;
+  border-bottom: 1px solid #eee;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: black; */
+  align-items: center;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 32px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  background: #fffaf6;
+  border-bottom: 1px solid #e8e2dc;
+}
+
+/* Search Box */
+.search-box {
+  position: relative;
+  width: 250px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px 44px 12px 20px;
+  border-radius: 999px;
+  border: 1px solid #d8d2cc;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-box i {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #1a1a1a;
+  pointer-events: none;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  /* text-decoration: none; */
+}
+
+/* Header Icons (Wishlist, Cart, Profile) */
+.header-icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+.header-icons i {
+  font-size: 30px;
+  color: #1C352D;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.header-icons i:hover {
+  transform: translateY(-2px);
+  opacity: 0.8;
+}
+
+/* =========================================
+   4. TOP IMAGES CSS
+   ========================================= */
+
+
+.design-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px; /* Adjust as needed */
+    height: 600px;     /* Adjust height as needed */
+    margin: 0 auto;
+    font-family: 'Arial', sans-serif; /* Use a suitable font */
+  }
+
+  /* Left panel styling */
+  .left-panel {
+    flex: 0.9;  
+    position: relative;
+    /* Replace with the actual image URL from the left side of image_4.png */
+    background-image: url('t2.png'); 
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Aligns content to the bottom */
+    color: white;
+  }
+
+  /* Content wrapper to keep text and button together */
+  .content-wrapper {
+    max-width: 80%;
+  }
+
+  /* Heading style */
+  .left-panel h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    line-height: 1.2;
+  }
+
+  /* Italic style for "Timeless" */
+  .left-panel h1 i {
+    font-style: italic;
+  }
+
+  /* Paragraph style */
+  .left-panel p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+
+  /* Button style */
+  .explore-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: white;
+    color: #333; /* Dark text color */
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .explore-button:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* Arrow icon style */
+  .explore-button .arrow {
+    margin-left: 10px;
+    font-size: 1.2rem;
+  }
+
+  /* Right panel styling */
+  .right-panel {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* Image style for the right panel */
+  .right-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+/* =========================================
+   4. NAVIGATION MENU BAR
+   ========================================= */
+.nav-menu ul {
+  background-color: #EEDCCF; /* Beige Background */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  border-bottom: none;
+}
+
+.nav-menu ul li {
+  color: #333333;
+  margin: 0 30px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  padding: 15px 0;
+}
+
+.nav-menu ul li:hover {
+  color: #d4af37;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.nav-menu ul li::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #d4af37;
+  transition: width 0.3s ease;
+}
+
+.nav-menu ul li:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   5. HERO SECTION
+   ========================================= */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: #fffaf6;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 24px;
+  color: #333;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.hero .btn {
+  display: inline-block;
+  background-color: #1C352D;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* =========================================
+   6. FEATURES ICONS ROW
+   ========================================= */
+.feature-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 40px;
+  font-weight: 600;
+}
+
+/* =========================================
+   7. BESTSELLERS SECTION
+   ========================================= */
+.bestsellers-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+/* Section Title (Shared Style) */
+.section-title {
+  text-align: left;
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  color: #111;
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+.section-title span {
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* Category Filter Buttons */
+.category-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  background: transparent;
+  border: 1px solid #b0b0b0;
+  border-radius: 50px;
+  padding: 5px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-btn.active,
+.category-btn:hover {
+  background-color: #2F4842;
+  color: #fff;
+  border-color: #2F4842;
+}
+
+/* Product Grid Layout */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+/* Product Card Styling */
+.product-card {
+  text-align: left;
+  transition: transform 0.3s;
+}
+
+.img-wrapper {
+  background-color: #fff;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.product-card img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  object-fit: contain;
+}
+
+.product-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.price-row {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.current-price {
+  font-weight: 700;
+  color: #000;
+  margin-right: 8px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 14px;
+}
+
+.color-options {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.dot.gold { background-color: #E6C685; }
+.dot.silver { background-color: #C0C0C0; }
+
+/* Shop Button */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn-shop {
+  background-color: #2F4842;
+  color: #fff;
+  padding: 14px 32px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s ease;
+}
+
+.btn-shop:hover {
+  background-color: #1a2e29;
+}
+
+/* =========================================
+   8. RECENTLY VIEWED SECTION
+   ========================================= */
+.middle {
+  background-color: #EEDBCF; /* Nude/Beige Background */
+  padding: 60px 20px;
+}
+
+.middle .section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-align: left;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+  padding-left: 10px;
+}
+
+.middle .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.middle .card {
+  background: transparent;
+  padding: 0;
+  text-align: left;
+  border-radius: 0;
+}
+
+.middle .card img {
+  background-color: #ffffff; /* White box behind image */
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  padding: 20px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.middle .card h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.middle .card div {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.middle .new-price {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+}
+
+.middle .old-price {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  text-decoration: line-through;
+  color: #777;
+}
+
+/* =========================================
+   9. GIFT NOTE (PERSONALIZED) SECTION
+   ========================================= */
+/* =========================================
+   9. GIFT NOTE SECTION (CORRECTED)
+   ========================================= */
+.gift-note-section {
+  padding: 40px 20px;
+  background-color: #fffaf6;
+  
+  /* Flexbox centering ensures the heading snaps to the middle */
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 100%;
+}
+
+.gift-note-heading-mixed {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 600;
+  color: #111;
+  text-align: center;
+  line-height: 1.25;
+  background-color: #FFF8F2;
+  padding: 28px 20px;
+  width: 100%;
+}
+.gift-note-heading-mixed span {
+  font-style: italic;
+}
+
+.gift-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gift-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.gift-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.gift-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.gift-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.gift-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1C352D;
+  border: 1px solid #1C352D;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: auto;
+}
+
+.gift-btn:hover {
+  background-color: #1C352D;
+  color: #fff;
+}
+
+/* Ading CSS to extra special gifts */
+.banner-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two equal columns */
+        gap: 20px; /* Space between images */
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    /* Individual Banner Cards */
+    .banner-card {
+        position: relative;
+        height: 500px; /* Adjust height as needed */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 4px; /* Optional slight rounding */
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end; /* Pushes content to bottom */
+    }
+
+    /* Gradient Overlay to make text readable */
+    .banner-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%);
+        z-index: 1;
+    }
+
+    /* --- IMAGE 1 SETTINGS (The Model) --- */
+    .banner-1 {
+        /* REPLACE THIS URL WITH YOUR IMAGE OF THE LADY */
+        background-image: url('g1.png'); 
+    }
+
+    /* --- IMAGE 2 SETTINGS (The Green Jewelry) --- */
+    .banner-2 {
+        /* REPLACE THIS URL WITH YOUR IMAGE OF THE JEWELRY */
+        background-image: url('g2.png');
+    }
+
+    /* Content Styling */
+    .content {
+        position: relative;
+        z-index: 2;
+        padding: 40px;
+        width: 100%;
+        color: white;
+    }
+
+    /* Typography */
+    h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem; /* Large size matching image */
+        line-height: 1.1;
+        margin-bottom: 25px;
+        font-weight: 600;
+        max-width: 80%;
+    }
+
+    /* Italic styling within the header */
+    h2 em {
+        font-style: italic;
+        font-weight: 400;
+    }
+
+    /* Buttons */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 12px 24px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn span {
+        margin-left: 8px; /* Space for arrow */
+        font-size: 1.2rem;
+    }
+
+    /* Button Style for Banner 1 (Dark Grey) */
+    .btn-dark {
+        background-color: rgba(80, 80, 80, 0.85); /* Semi-transparent dark grey */
+        color: white;
+    }
+    .btn-dark:hover {
+        background-color: rgba(50, 50, 50, 1);
+    }
+
+    /* Button Style for Banner 2 (White) */
+    .btn-light {
+        background-color: white;
+        color: #0d3b2e; /* Dark green text to match background */
+    }
+    .btn-light:hover {
+        background-color: #f0f0f0;
+    }
+
+/* =========================================
+   10. JEWELRY COLLECTION (CIRCLES)
+   ========================================= */
+.jewelry-section {
+  padding: 40px 0;
+  background-color: #fffaf6;
+}
+
+.collection-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  font-weight: 600;
+  color: #000;
+  text-align: center; /* Centers the text */
+  padding: 20px 0;
+  width: 100%; /* Ensures the heading takes up full space to center correctly */
+  display: block; /* Ensures it behaves as a block element */
+  margin: 0 auto; /* Centers the block itself if width is restricted */
+}
+
+.collection-title span {
+  font-style: italic;
+}
+
+.jewelry-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 20px;
+}
+
+.jewelry-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  text-align: center;
+}
+
+.jewelry-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.jewelry-item img:hover {
+  transform: scale(1.05);
+}
+
+.jewelry-item p {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1C352D;
+}
+
+/* =========================================
+   11. GIFT MOMENTS (Birthday/Anniversary)
+   ========================================= */
+.gift-moments {
+  background-color: #EEDBCF;
+  padding: 60px 20px;
+  
+  /* FIXED: Changed 'width: full' to 'width: 100%' */
+  width: 100%; 
+  
+  /* This ensures the heading and button inside are centered */
+  text-align: center;
+}
+
+.gift-subtext {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.gift-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.gift-box {
+  border-radius: 12px;
+  padding: 20px;
+  width: 450px;
+  text-align: left;
+}
+
+.gift-box img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.gift-box h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #11211c;
+  margin-bottom: 8px;
+}
+
+.gift-box p {
+  font-size: 16px;
+  color: #11211c;;
+  margin-bottom: 16px;
+}
+
+.explore-btn {
+  margin-top: 40px;
+}
+
+/* =========================================
+   12. ETHOS SECTION (Our Story)
+   ========================================= */
+.ethos-section {
+  background-color: #FFF8F2;
+  padding: 80px 60px;
+}
+
+.ethos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.ethos-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.ethos-content h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.ethos-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #111;
+  margin-bottom: 24px;
+}
+
+.ethos-content h3 span {
+  font-style: italic;
+}
+
+.ethos-content p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 32px;
+}
+
+.ethos-btn {
+  background-color: #1C352D;
+  color: #ffffff;
+  border: none;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* =========================================
+   13. TESTIMONIALS SECTION
+   ========================================= */
+/* =========================================
+   13. TESTIMONIALS SECTION (CORRECTED)
+   ========================================= */
+.testimonials-section {
+  background-color: #FFF8F2;
+  padding: 80px 60px;
+}
+
+.testimonials-container {
+  max-width: 1300px; /* Optional: Constrain width on huge screens */
+  margin: 0 auto;
+  
+  /* FIXED: Changed 'width: full' to 'width: 100%' */
+  width: 100%; 
+  
+  /* This centers everything inside the container */
+  text-align: center; 
+}
+
+.testimonials-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 16px;
+  
+  /* Force center alignment */
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+.testimonials-title span {
+  font-style: italic;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.testimonial-card {
+  /* color: #11211c;; */
+  text-align: left;
+}
+
+.testimonial-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin-bottom: 14px;
+  border-radius: 8px;
+}
+
+.testimonial-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #11211c;;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.author {
+  font-weight: 700;
+  display: block;
+  text-align: right;
+  margin-top: 10px;
+}
+
+.testimonial-btn {
+  margin-top: 60px;
+  background-color: #164737;
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* =========================================
+   14. ICON TEXT (CIRCLES GRID)
+   ========================================= */
+.icon-text-section {
+  background-color: #FFF8F2;
+  padding: 80px 60px;
+}
+
+.icon-text-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  text-align: center;
+}
+
+.circle {
+  width: 120px;
+  height: 120px;
+  border: 2px solid #1C352D;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+}
+
+.icon-text-item p {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* =========================================
+   15. FOOTER SECTION
+   ========================================= */
+.footer * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer {
+  background-color: #1A3C38; /* Dark Teal Background */
+  color: #ffffff;
+  padding: 60px 0 30px 0;
+  width: 100%;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Footer Brand (Left) */
+.footer-brand {
+  flex: 0 0 40%;
+  max-width: 450px;
+  padding-right: 20px;
+}
+
+.footer-logo {
+  max-width: 180px;
+  margin-bottom: 25px;
+  display: block;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #f0f0f0;
+}
+
+/* Footer Links (Right) */
+.footer-col {
+  flex: 0 0 auto;
+  min-width: 140px;
+  margin-left: 40px;
+}
+
+/* Gap Creator */
+.footer-brand + .footer-col {
+  margin-left: auto;
+}
+
+.footer-col h4 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  color: #ffffff;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #e0e0e0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul li:hover {
+  color: #ffffff;
+}
+
+/* Footer Bottom Bar */
+.footer-bottom {
+  background-color: #27746d;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 0;
+  margin: 50px 40px 0 40px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Responsive Footer */
+@media (max-width: 900px) {
+  .footer-brand {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .footer-brand + .footer-col {
+    margin-left: 0;
+  }
+  
+  .footer-col {
+    margin-left: 0;
+    margin-right: 40px;
+    margin-bottom: 30px;
+  }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <nav>
+    <div class="top-bar">
+      <span class="top-text">Step into Sparkle – Pure Gold & Silver Await</span>
+      <div class="top-icons">
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-facebook"></i>
+      </div>
+    </div>
+  </nav>
+  <div class="header-inner">
+    <div class="search-box">
+      <input type="text" placeholder="Search for Earrings.." />
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+
+    <div class="logo">
+      <img src="kilangi logo.png" alt="Kilangi Logo">
+    </div>
+
+    <div class="header-icons">
+      <i class="fa-regular fa-heart"></i>
+      <i class="fa-regular fa-user"></i>
+      <i class="fa-solid fa-bag-shopping"></i>
+    </div>
+  </div>
+    <div class="nav-menu">
+  <ul>
+    <li>All Jewellery</li>
+    <li>Gold</li>
+    <li>Silver</li>
+    <li>Gifting</li>
+    <li>About Us</li>
+    <li>Contact</li>
+  </ul>
+</div>
+
+
+</header>
+
+
+<div class="design-container">
+  <div class="left-panel">
+    <div class="content-wrapper">
+      <h1>Because You Deserve to Feel <i>Timeless</i>.</h1>
+      <p>Each piece is thoughtfully designed to celebrate your individuality — blending modern elegance with lasting craftsmanship.</p>
+      <a href="#" class="explore-button">
+        Explore the Elegance <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="right-panel">
+    <img src="t1.png" >
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Because You Deserve to <br/>Feel Timeless.</h1>
+  <p>Each piece is thoughtfully designed to celebrate your individuality — blending modern elegance with lasting craftsmanship.</p>
+  <div class="btn">Explore the Elegance</div>
+</section>
+
+<!-- FEATURES GRID -->
+<section>
+    <div class="feature-grid">
+  <div class="feature-item">Anti - Fade Polish</div>
+  <div class="sparkle-icon">
+    <img src="star.png" alt="Sparkle Icon" width="50" height="50">
+  </div>
+  <div class="feature-item">Timeless Design</div>
+  <div class="sparkle-icon">
+    <img src="star.png" alt="Sparkle Icon" width="50" height="50">
+  </div>
+  <div class="feature-item">Lightweight Comfort</div>
+  <div class="sparkle-icon">
+    <img src="star.png" alt="Sparkle Icon" width="50" height="50">
+  </div>
+  <div class="feature-item">Modern Minimal</div>
+</div>
+
+</section>
+
+<!-- BESTSELLERS -->
+<section>
+  <section class="bestsellers-wrapper">
+  
+  <h2 class="section-title">Explore Our <span>Timeless Bestseller</span></h2>
+
+  <div class="category-buttons">
+    <button class="category-btn active">Rings</button>
+    <button class="category-btn">Earrings</button>
+    <button class="category-btn">Pendants</button>
+    <button class="category-btn">Bracelets</button>
+    <button class="category-btn">Bangles</button>
+  </div>
+
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="img-wrapper">
+        <img src="ring.png" alt="Ring">
+      </div>
+      <h3>TWISTED PETAL GOLD BRACELET</h3>
+      <div class="price-row">
+        <span class="current-price">₹79904</span>
+        <span class="old-price">₹99904</span>
+      </div>
+      <div class="color-options">
+        <span class="dot gold"></span>
+        <span class="dot silver"></span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="img-wrapper">
+        <img src="ring.png" alt="Ring">
+      </div>
+      <h3>TWISTED PETAL GOLD BRACELET</h3>
+      <div class="price-row">
+        <span class="current-price">₹79904</span>
+        <span class="old-price">₹99904</span>
+      </div>
+      <div class="color-options">
+        <span class="dot gold"></span>
+        <span class="dot silver"></span>
+      </div>
+    </div>
+    
+     <div class="product-card">
+      <div class="img-wrapper">
+        <img src="ring.png" alt="Ring">
+      </div>
+      <h3>TWISTED PETAL GOLD BRACELET</h3>
+      <div class="price-row">
+        <span class="current-price">₹79904</span>
+        <span class="old-price">₹99904</span>
+      </div>
+      <div class="color-options">
+        <span class="dot gold"></span>
+        <span class="dot silver"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-container">
+    <div class="btn-shop">
+      <span>Shop Bestsellers</span>
+      <i class="fa-solid fa-arrow-right"></i>
+    </div>
+  </div>
+
+</section>
+</section>
+
+<!-- RECENTLY VIEWED -->
+<section class="middle">
+  <h2 class="section-title">Recently Viewed</h2>
+    <div class="grid">
+  <div class="card">
+    <img src="ring.png" alt="" srcset="" >
+    <h2>TWISTED PETAL GOLD <br>
+        BRACELET</h2>
+    <div>
+        <span class="new-price">₹79,904</span>
+        <span class="old-price">₹99,904</span>
+    </div>
+  </div>
+   <div class="card">
+    <img src="ring.png" alt="" srcset="" >
+    <h2>TWISTED PETAL GOLD <br>
+        BRACELET</h2>
+    <div>
+        <span class="new-price">₹79,904</span>
+        <span class="old-price">₹99,904</span>
+    </div>
+  </div>
+   <div class="card">
+    <img src="ring.png" alt="" srcset="" >
+    <h2>TWISTED PETAL GOLD <br>
+        BRACELET</h2>
+    <div>
+        <span class="new-price">₹79,904</span>
+        <span class="old-price">₹99,904</span>
+    </div>
+  </div>
+   <div class="card">
+    <img src="ring.png" alt="" srcset="" >
+    <h2>TWISTED PETAL GOLD <br>
+        BRACELET</h2>
+    <div>
+        <span class="new-price">₹79,904</span>
+        <span class="old-price">₹99,904</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="gift-note-section">
+  <h2 class="gift-note-heading-mixed">
+        Make It <span>Extra Special</span> with Personalised <br />
+        Gift Notes
+  </h2>
+
+
+  <section class="gift-layout">
+  <div class="gift-left">
+    <img src="gift1.png" alt="Main Jewelry Image">
+  </div>
+
+  <div class="gift-right">
+    <div class="gift-card">
+      <img src="gift2.png" alt="Shop Under ₹10000">
+      <button class="gift-btn">Shop Under ₹10000</button>
+    </div>
+    <div class="gift-card">
+      <img src="gift2.png" alt="Shop Under ₹20000">
+      <button class="gift-btn">Shop Under ₹20000</button>
+    </div>
+    <div class="gift-card">
+      <img src="gift2.png" alt="Shop Under ₹30000">
+      <button class="gift-btn">Shop Under ₹30000</button>
+    </div>
+    <div class="gift-card">
+      <img src="gift2.png" alt="E-Gift Cards">
+      <button class="gift-btn">E-Gift Cards</button>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="banner-grid">
+
+    <div class="banner-card banner-1">
+        <div class="content">
+            <h2>Winter <em>Love</em> Has Arrived..</h2>
+            <a href="#" class="btn btn-dark">
+                Explore New Arrivals <span>&rarr;</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="banner-card banner-2">
+        <div class="content">
+            <h2>Introducing <em>Lab Grown</em> Silver and Gold</h2>
+            <a href="#" class="btn btn-light">
+                Shop Gold and Silver <span>&rarr;</span>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+
+<section class="jewelry-section">
+  <h2 class="collection-title">
+    Explore Our <span>Collection</span>
+  </h2>
+
+
+  <div class="jewelry-flex">
+    <div class="jewelry-item">
+      <img src="ring1.png" alt="Rings">
+      <p>Rings</p>
+    </div>
+    <div class="jewelry-item">
+      <img src="earrings.png" alt="Earrings">
+      <p>Earrings</p>
+    </div>
+    <div class="jewelry-item">
+      <img src="pendents.png" alt="Pendants">
+      <p>Pendants</p>
+    </div>
+    <div class="jewelry-item">
+      <img src="bracelets.png" alt="Bracelets">
+      <p>Bracelets</p>
+    </div>
+    <div class="jewelry-item">
+      <img src="necklace.png" alt="Necklace">
+      <p>Necklace</p>
+    </div>
+    <div class="jewelry-item">
+      <img src="bangles.png" alt="Bangles">
+      <p>Bangles</p>
+    </div>
+    <div class="jewelry-item">
+      <img src="accessories.png" alt="Accessories">
+      <p>Accessories</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="gift-moments">
+   <h2 class="collection-title">
+    Gifts That  <span>Celebrate</span> Every Moment
+  </h2>
+  <!-- <h2 class="gift-heading">Gifts That Celebrate Every Moment</h2> -->
+  <p class="gift-subtext">Varius velit platea quis pellentesque mi et imperdiet. dolor sit amet consectetur.</p>
+
+  <div class="gift-grid">
+    <div class="gift-box">
+      <img src="birthday.png" alt="Birthday Gift">
+      <h3>BIRTHDAY</h3>
+      <p>Celebrate their special day with a timeless piece that shines as bright as they do.</p>
+      <button class="gift-btn">Shop Birthday Gifts →</button>
+    </div>
+    <div class="gift-box">
+      <img src="anniversary.png" alt="Anniversary Gift">
+      <h3>ANNIVERSARY</h3>
+      <p>Mark your love story with jewellery that symbolizes everlasting connection and devotion.</p>
+      <button class="gift-btn">Shop Anniversary Gifts →</button>
+    </div>
+    <div class="gift-box">
+      <img src="engangement.png" alt="Engagement Gift">
+      <h3>ENGAGEMENT</h3>
+      <p>Begin forever with a piece that captures the promise of your beautiful journey ahead.</p>
+      <button class="gift-btn">Shop Engagement Gifts →</button>
+    </div>
+  </div>
+
+  <div class="explore-btn">
+    <button class="gift-btn">Explore More Collection →</button>
+  </div>
+</section>
+
+
+<section class="ethos-section">
+  <div class="ethos-container">
+    <div class="ethos-image">
+      <img src="necklace_and_ring.png" alt="Jewelry Ethos Image">
+    </div>
+    <div class="ethos-content">
+      <h2>OUR ETHOS</h2>
+      <h3>Every <span>Shape.</span><br>Every <span>Sparkle.</span></h3>
+      <p>
+        Every piece we create is a blend of artistry and awareness handcrafted with precision, guided by purpose.<br><br>
+        From ethically sourced materials to sustainable processes, we believe true beauty shines brightest when it’s made responsibly.
+      </p>
+      <button class="ethos-btn">Know More →</button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+  <div class="hero-section">
+    <div class="hero-left">
+      <h1 class="hero-heading">Because You Deserve to Feel <i>Timeless</i>.</h1>
+      <p class="hero-text">Each piece is thoughtfully designed to celebrate your individuality — blending modern elegance with lasting craftsmanship.</p>
+      <a href="#" class="hero-button">
+        Explore the Elegance <span class="arrow">→</span>
+      </a>
+    </div>
+    <div class="hero-right">
+      <img alt="Woman with diamond bracelet">
+    </div>
+  </div>
+
+  <div class="feature-section">
+    <div class="feature-left">
+      <img src="https://i.imgur.com/S45d7eF.png" alt="Diamonds and tweezers">
+    </div>
+    <div class="feature-right">
+      <h1 class="feature-heading">Not Just A Trend. It’s The <i>Future</i>.</h1>
+      <p class="feature-text">Our lab-grown gold and silver jewellery is crafted with the same brilliance and purity as mined metals without the compromise.</p>
+      
+      <div class="icon-grid">
+        <div class="icon-item">
+          <img src="https://i.imgur.com/aJ3rD5p.png" alt="925 Sterling Silver Icon">
+          <span class="icon-caption">925 Sterling Silver</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://i.imgur.com/X0nB9lF.png" alt="Certified Diamonds Icon">
+          <span class="icon-caption">Certified Diamonds</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://i.imgur.com/g7jQ8fV.png" alt="Ethical Sourcing Icon">
+          <span class="icon-caption">Ethical Sourcing</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://i.imgur.com/d2sP6gH.png" alt="Free 15 Days Return Icon">
+          <span class="icon-caption">Free 15 Days Return & Exchange</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://i.imgur.com/t8dC5kL.png" alt="Customisable Designs Icon">
+          <span class="icon-caption">Customisable Designs</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://i.imgur.com/o1wE9mI.png" alt="BIS Hallmark Icon">
+          <span class="icon-caption">BIS Hallmark</span>
+        </div>
+      </div> </div> </div> </div>
+</section>
+
+<section class="testimonials-section">
+  <div class="testimonials-container">
+
+    <h2 class="testimonials-title">
+      Voices of Our <span>Happy Customer</span>
+    </h2>
+
+    <p class="testimonials-subtitle">
+      Every piece we create carries a story but nothing shines brighter than
+      the words of those who wear them.
+    </p>
+
+    <div class="testimonials-grid">
+
+      <!-- Card 1 -->
+      <div class="testimonial-card">
+        <img src="review1.png" alt="Customer Jewellery">
+        <div class="stars">★★★★★</div>
+        <h4>“So pretty!”</h4>
+        <p>
+          I recently ordered the ‘Golden Radiance Hoops’ from Kilangi, and I’m
+          absolutely in love! The craftsmanship is stunning, and the shine is
+          just perfect.
+        </p>
+        <span class="author">~ Harshad Mehta</span>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="testimonial-card">
+        <img src="review2.png" alt="Customer Jewellery">
+        <div class="stars">★★★★★</div>
+        <h4>“So pretty!”</h4>
+        <p>
+          I recently ordered the ‘Golden Radiance Hoops’ from Kilangi, and I’m
+          absolutely in love! The craftsmanship is stunning, and the shine is
+          just perfect.
+        </p>
+        <span class="author">~ Harshad Mehta</span>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="testimonial-card">
+        <img src="review3.png" alt="Customer Jewellery">
+        <div class="stars">★★★★★</div>
+        <h4>“So pretty!”</h4>
+        <p>
+          I recently ordered the ‘Golden Radiance Hoops’ from Kilangi, and I’m
+          absolutely in love! The craftsmanship is stunning, and the shine is
+          just perfect.
+        </p>
+        <span class="author">~ Harshad Mehta</span>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="testimonial-card">
+        <img src="review4.png" alt="Customer Jewellery">
+        <div class="stars">★★★★★</div>
+        <h4>“So pretty!”</h4>
+        <p>
+          I recently ordered the ‘Golden Radiance Hoops’ from Kilangi, and I’m
+          absolutely in love! The craftsmanship is stunning, and the shine is
+          just perfect.
+        </p>
+        <span class="author">~ Harshad Mehta</span>
+      </div>
+
+    </div>
+
+    <button class="testimonial-btn">
+      Read More Review →
+    </button>
+
+  </div>
+
+</section>
+
+<section class="icon-text-section">
+  <div class="icon-text-grid">
+
+    <div class="icon-text-item">
+      <div class="circle"></div>
+      <p>aliquam nunc<br>pellentesque urna.</p>
+    </div>
+
+    <div class="icon-text-item">
+      <div class="circle"></div>
+      <p>aliquam nunc<br>pellentesque urna.</p>
+    </div>
+
+    <div class="icon-text-item">
+      <div class="circle"></div>
+      <p>aliquam nunc<br>pellentesque urna.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- BRAND -->
+    <div class="footer-brand">
+      <img src="kilangi-logo-white.png" alt="Kilangi Logo" class="footer-logo">
+
+      <p>
+        Kilangi Jewellery is a premium brand specializing in exquisite silver
+        and gold jewellery.
+      </p>
+
+      <p>
+        Known for its timeless elegance and fine craftsmanship, Kilangi offers
+        a curated collection of traditional and contemporary designs perfect
+        for every occasion.
+      </p>
+    </div>
+
+    <!-- OUR COLLECTION -->
+    <div class="footer-col">
+      <h4>OUR COLLECTION</h4>
+      <ul>
+        <li>Rings</li>
+        <li>Earrings</li>
+        <li>Pendants</li>
+        <li>Bracelets</li>
+        <li>Necklaces</li>
+        <li>Bangles</li>
+        <li>Accessories</li>
+      </ul>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+      <h4>QUICK LINKS</h4>
+      <ul>
+        <li>All Jewellery</li>
+        <li>Gold</li>
+        <li>Silver</li>
+        <li>Gifting</li>
+        <li>About Us</li>
+        <li>Contact Us</li>
+      </ul>
+    </div>
+
+    <!-- POLICIES -->
+    <div class="footer-col">
+      <h4>POLICIES</h4>
+      <ul>
+        <li>Privacy Policy</li>
+        <li>Refund Policy</li>
+        <li>Shipping Policy</li>
+        <li>Privacy Policy</li>
+        <li>Terms & Condition</li>
+        <li>FAQ’s Policy</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="footer-bottom">
+    © 2025 / Kilangi
+  </div>
+</footer>
+
+</body>
+</html>
