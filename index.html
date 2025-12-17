@@ -16,6 +16,10 @@
    ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Poppins:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Poppins:wght@400;500;600;700&display=swap');
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 * {
   margin: 0;
   padding: 0;
@@ -2539,13 +2543,7 @@ header nav {
     margin: 0;
   }
 }
-/* =========================================
-   MOBILE FOOTER LAYOUT (Matches Image)
-========================================= */
-/* =========================================
-   MOBILE FOOTER - COMPLETE STYLE & LAYOUT
-   (Matches exact image reference)
-========================================= */
+
 /* =========================================
    MOBILE FOOTER: EXACT 2-COL LAYOUT
    (Matches your screenshot)
@@ -2828,8 +2826,7 @@ header nav {
 
 /* =======================================================
    BAAP FIX: FINAL CENTER OVERRIDE FOR MOBILE
-   (Paste this immediately before </style>)
-   ======================================================= */
+   =========================== */
 @media (max-width: 768px) {
 
   /* 1. CONTAINER: Stack Items Vertically */
@@ -2977,6 +2974,155 @@ header nav {
   .ethos-btn {
     display: inline-block !important;
     margin: 20px auto 0 auto !important; /* Top Auto Bottom Auto */
+  }
+}
+/* =======================================================
+   MASTER MOBILE SCROLL FIX (PASTE AT BOTTOM)
+   ======================================================= */
+@media (max-width: 768px) {
+
+  /* 1. DEFINE THE SCROLL CONTAINERS 
+     (Bestsellers, Recently Viewed, Gift Note, Gift Moments, Testimonials) */
+  .product-scroll, 
+  .middle .grid, 
+  .gift-right, 
+  .gift-grid, 
+  .testimonials-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;       /* Prevents stacking */
+    overflow-x: auto !important;        /* Enables scrolling */
+    
+    /* Full Bleed Logic (Touches screen edges) */
+    width: auto !important;
+    margin-left: -20px !important;      
+    margin-right: -20px !important;
+    padding-left: 20px !important;      /* Starts content at the correct spot */
+    padding-right: 20px !important;
+    padding-bottom: 30px !important;    /* Space for scrollbar/touch */
+    
+    /* Smooth Physics */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    
+    /* Reset any Grid properties that might conflict */
+    grid-template-columns: none !important;
+    gap: 16px !important;
+  }
+
+  /* 2. HIDE SCROLLBARS (Optional - keeps UI clean) */
+  .product-scroll::-webkit-scrollbar,
+  .middle .grid::-webkit-scrollbar,
+  .gift-right::-webkit-scrollbar,
+  .gift-grid::-webkit-scrollbar,
+  .testimonials-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 3. SIZE THE CARDS (So they don't squish) */
+  .product-card, 
+  .middle .card, 
+  .gift-card, 
+  .gift-box, 
+  .testimonial-card {
+    flex: 0 0 80% !important; /* Card takes 80% of screen width */
+    max-width: 80% !important;
+    min-width: 80% !important;
+    width: 80% !important;
+    margin: 0 !important; /* Reset margins to let gap handle spacing */
+    scroll-snap-align: center; /* Snaps card to center when scrolling stops */
+  }
+
+  /* 4. SPECIAL FIX FOR GIFT NOTE SECTION (Grid Parent Issue) */
+  /* This prevents the parent Grid from crushing the Scroll container */
+  .gift-layout {
+    display: block !important; /* Switches parent from Grid to Block on mobile */
+  }
+  .gift-right {
+    min-width: 0 !important; /* Critical fix for scrolling inside flex items */
+  }
+  
+  /* 5. SPECIAL SIZE FOR RECENTLY VIEWED (Make them smaller) */
+  .middle .card {
+    flex: 0 0 60% !important; 
+    max-width: 60% !important;
+    min-width: 60% !important;
+  }
+}
+/* =======================================================
+   GIFT SECTION ALIGNMENT FIX (Mobile)
+   ======================================================= */
+@media (max-width: 768px) {
+  
+  .gift-box {
+    /* 1. Force Text and Inline elements (like buttons) to Center */
+    text-align: center !important;
+    
+    /* 2. Flexbox alignment to force block elements (like Images) to Center */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    
+    /* Optional: Ensure padding is even */
+    padding: 20px 10px !important;
+  }
+
+  /* 3. Ensure Image fills the width nicely */
+  .gift-box img {
+    width: 100% !important;
+    object-fit: cover;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+  }
+
+  /* 4. Fix specific text spacing if needed */
+  .gift-box h3, 
+  .gift-box p {
+    text-align: center !important;
+    width: 100% !important;
+  }
+}
+
+/* =======================================================
+   FINAL ALIGNMENT FIX FOR GIFT MOMENTS (Mobile)
+   ======================================================= */
+@media (max-width: 768px) {
+
+  /* 1. Target the box specifically inside the gift-moments section */
+  .gift-moments .gift-box {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;  /* Centers the Image and Button blocks */
+    text-align: center !important;   /* Centers the text inside h3 and p */
+    
+    /* Keep the sizing for scrolling */
+    flex: 0 0 85% !important; 
+    max-width: 85% !important;
+  }
+
+  /* 2. Ensure Image centers correctly */
+  .gift-moments .gift-box img {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 15px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* 3. Force Headers and Paragraphs to center */
+  .gift-moments .gift-box h3,
+  .gift-moments .gift-box p {
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  /* 4. Center the Button explicitly */
+  .gift-moments .gift-btn {
+    margin-top: 10px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: inline-block !important;
   }
 }
 </style>
