@@ -284,7 +284,7 @@ header nav {
   }
 
   .explore-button:hover {
-    background-color: #f0f0f0;
+    background-color: #b0ffe6;
   }
 
   /* Arrow icon style */
@@ -717,12 +717,47 @@ header nav {
   max-width: 1200px;
   margin: 0 auto;
 }
+.gift-left {
+    position: relative;
+    /* Vital: Hides the image parts that zoom outside the box */
+    overflow: hidden; 
+    border-radius: 12px; /* Match the corner radius of right-side cards */
+    
+    /* Initial subtle shadow */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    
+    /* Smooth transition for the lift and shadow change */
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+}
 
 .gift-left img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px; /* Ensures image corners match container */
+    
+    /* Very slow, smooth transition for the zoom effect */
+    transition: transform 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    /* Optional: slightly brighten image initially so it can darken slightly on zoom for depth */
+    /* filter: brightness(1); */
+    /* transition: transform 1.2s ease, filter 1.2s ease; */
+}
+.gift-left:hover {
+    /* Slight lift matching the right cards */
+    transform: translateY(-8px);
+    
+    /* Elegant Gold Glow Shadow */
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+}
+
+/* State B: Image zoom triggered by container hover */
+.gift-left:hover img {
+    /* Slow, cinematic zoom inwards */
+    transform: scale(1.1);
+    
+    /* Optional: slight contrast increase on hover for drama */
+    /* filter: contrast(1.05); */
 }
 
 .gift-right {
@@ -732,17 +767,59 @@ header nav {
 }
 
 .gift-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+    /* Keep existing flex styles */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Increased gap slightly */
+
+    /* New Styles for Hover Foundation */
+    position: relative;
+    /* background-color: #ffffff; White background needed for shadow contrast */
+    padding: 10px 10px 20px 10px; /* Padding around content */
+    border-radius: 12px; /* Smoother corners */
+    overflow: hidden; /* Keeps zooming image inside the box */
+    border: 1px solid transparent; /* Placeholder for border transition */
+    
+    /* Subtle initial shadow */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    
+    /* Smooth transition for the lift and shadow */
+    transition: all 0.4s ease-out;
+    cursor: pointer;
 }
 
+/* 2. Update Base Image Style */
 .gift-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Adjusted radius to fit inside padding */
+    object-fit: cover;
+    
+    /* Smooth transition for the zoom */
+    transition: transform 0.5s ease-in-out;
+}
+.gift-card:hover {
+    /* Lift the card up */
+    transform: translateY(-12px);
+    /* Deep, soft shadow for 3D effect */
+    box-shadow: 0 20px 40px rgba(28, 53, 45, 0.15);
+    /* Optional: Add a subtle border color (e.g., Gold or Dark Green) */
+    border-color: rgba(212, 175, 55, 0.5); /* Subtle gold border */
+}
+
+/* State B: Image Zoom on card hover */
+.gift-card:hover img {
+    /* Subtle zoom effect */
+    transform: scale(1.08);
+}
+
+/* State C: Button Highlight on card hover */
+/* The button turns Gold when you hover anywhere on the card */
+.gift-card:hover .gift-btn {
+    background-color: #d4af37;
+    /* color: white; */
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
 }
 
 .gift-btn {
@@ -751,8 +828,9 @@ header nav {
   font-size: 14px;
   font-weight: 600;
   /* background-color: #1C352D; */
-  color: #1C352D;
-  background-color: #fff;
+  color: white;
+  /* tex */
+  background-color: #164737;
   /* color:white; */
   /* border: 1px solid #1C352D; */
   /* background-color: transparent; */
@@ -768,36 +846,249 @@ header nav {
   color: #fff;
 }
 
-/* Ading CSS to extra special gifts */
+
+/* =========================================
+   FRAMER-STYLE SCROLL ANIMATIONS
+========================================= */
+
+/* 1. Base State (Hidden) */
+.motion-hidden {
+  opacity: 0;
+  transform: translateY(40px); /* Pushes element down */
+  transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), 
+              transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: opacity, transform;
+}
+
+/* 2. Active State (Visible) - Added by JS */
+.motion-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3. Directional Variations */
+.motion-from-left {
+  transform: translateX(-50px);
+}
+
+.motion-from-right {
+  transform: translateX(50px);
+}
+
+/* 4. Stagger Delays (For the gallery images) */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+
+/* =========================================
+   AMBIENT FLOATING EFFECT (No Hover Needed)
+========================================= */
+
+/* 1. Define the Float Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px); /* Moves up slightly */
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* 2. Apply Animation to Jewelry Items */
+.jewelry-item {
+  /* Continuous, smooth, infinite loop */
+  animation: float 4s ease-in-out infinite;
+  
+  /* Ensure browser renders it smoothly */
+  will-change: transform;
+}
+
+/* 3. The "Wave" Logic (Staggering) */
+/* This makes them move at different times, creating a wave instead of robots */
+
+.jewelry-item:nth-child(1) { animation-delay: 0s; }
+.jewelry-item:nth-child(2) { animation-delay: 0.5s; }
+.jewelry-item:nth-child(3) { animation-delay: 1s; }
+.jewelry-item:nth-child(4) { animation-delay: 1.5s; }
+.jewelry-item:nth-child(5) { animation-delay: 2s; }
+.jewelry-item:nth-child(6) { animation-delay: 2.5s; }
+.jewelry-item:nth-child(7) { animation-delay: 3s; }
+
+/* 4. Interaction: Pause on Hover */
+/* Stops the floating when the user tries to click so it's easier to target */
+.jewelry-item:hover {
+  animation-play-state: paused;
+}
+
+
+/* =========================================
+   AMBIENT SHIMMER EFFECT (Premium Light Sweep)
+========================================= */
+
+/* 1. Set up the container for the shine */
+.gift-box {
+  position: relative;
+  overflow: hidden; /* Keeps the shine inside the card */
+  /* Ensure the background is solid so the shine stands out */
+  /* background-color: #fff;  */
+}
+
+/* 2. Create the "Beam of Light" */
+.gift-box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%; /* Start far off to the left */
+  width: 100%;
+  height: 100%;
+  
+  /* The Light Gradient: Transparent -> White -> Transparent */
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  
+  /* Tilt it for a dynamic look */
+  transform: skewX(-25deg);
+  
+  /* The Animation settings */
+  animation: shimmer 7s infinite; /* Runs every 7 seconds */
+  pointer-events: none; /* Allows clicking through the shine */
+  z-index: 2;
+}
+
+/* 3. The Animation Keyframes */
+@keyframes shimmer {
+  0% {
+    left: -150%; /* Start position */
+  }
+  20% {
+    left: 150%; /* End position (Crosses the card quickly) */
+  }
+  100% {
+    left: 150%; /* Stays there for the rest of the time (Pause) */
+  }
+}
+
+/* 4. Stagger the timing (The "Cascade") */
+/* This makes the light hit Card 1, then Card 2, then Card 3 sequentially */
+
+.gift-box:nth-child(1)::after {
+  animation-delay: 0s;
+}
+
+.gift-box:nth-child(2)::after {
+  animation-delay: 2.5s; /* Waits for 1st to finish */
+}
+
+.gift-box:nth-child(3)::after {
+  animation-delay: 5s; /* Waits for 2nd to finish */
+}
+/* =========================================
+   BANNER HOVER EFFECT: CINEMATIC ZOOM
+========================================= */
+
+/* 1. Container Grid */
 .banner-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Two equal columns */
-        gap: 20px; /* Space between images */
-        max-width: 1400px;
-        margin: 0 auto;
-    }
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
 
-    /* Individual Banner Cards */
-    .banner-card {
-        position: relative;
-        height: 500px; /* Adjust height as needed */
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        border-radius: 4px; /* Optional slight rounding */
-        overflow: hidden;
-        display: flex;
-        align-items: flex-end; /* Pushes content to bottom */
-    }
+/* 2. Card Base - Needs Overflow Hidden */
+.banner-card {
+    position: relative;
+    height: 500px;
+    border-radius: 4px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden; /* CRITICAL: Keeps the zoomed image inside the box */
+    
+    /* Remove background-image from the main div so we can put it in ::before */
+    background-image: none !important; 
+    background-color: #000; /* Fallback color */
+}
 
-    /* Gradient Overlay to make text readable */
-    .banner-card::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%);
-        z-index: 1;
-    }
+/* 3. The Image Layer (We move the image here to animate it) */
+.banner-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    
+    /* Image sizing */
+    background-size: cover;
+    background-position: center;
+    
+    /* Smooth Zoom Animation */
+    transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 0;
+}
+
+/* 4. Assign Images to the ::before element */
+.banner-1::before {
+    background-image: url('g1.png');
+}
+
+.banner-2::before {
+    background-image: url('g2.png');
+}
+
+/* 5. The Gradient Overlay (Darkens on hover) */
+.banner-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    
+    /* Default Gradient */
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%);
+    
+    z-index: 1; /* Sits above image, below text */
+    transition: background 0.5s ease;
+}
+
+/* 6. Content Layer (Text & Button) */
+.content {
+    position: relative;
+    z-index: 2; /* Sits on top of everything */
+    padding: 40px;
+    width: 100%;
+    color: white;
+    
+    /* Smooth float animation */
+    transition: transform 0.6s ease-out;
+}
+
+/* --- HOVER EFFECTS --- */
+
+/* Effect A: Zoom the Background Image */
+.banner-card:hover::before {
+    transform: scale(1.15); /* Zooms in 15% */
+}
+
+/* Effect B: Darken the Gradient (Makes text clearer) */
+.banner-card:hover::after {
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%);
+}
+
+/* Effect C: Float the Text Upward */
+.banner-card:hover .content {
+    transform: translateY(-15px);
+}
+
+/* Optional: Button Interaction */
+.banner-card:hover .btn {
+    padding-left: 28px; /* Subtle expansion */
+    padding-right: 28px;
+}
 
     /* --- IMAGE 1 SETTINGS (The Model) --- */
     .banner-1 {
@@ -1480,7 +1771,46 @@ header nav {
     grid-template-columns: 1fr;
   }
 }
+/* =========================================
+   MOBILE CENTERING FIX (Ethos & UGC)
+   ========================================= */
+@media (max-width: 768px) {
 
+  /* 1. Center the "Our Ethos" Text Section */
+  .ethos-content {
+    text-align: center;      /* Centers the Heading and Paragraph */
+    display: flex;           /* Enables flexbox to center the button */
+    flex-direction: column;  /* Stacks elements vertically */
+    align-items: center;     /* Centers the "Know More" button horizontally */
+  }
+
+  /* 2. Center the UGC (User Generated Content) Section */
+  .ugc-section {
+    text-align: center !important; /* Overrides the 'left' alignment set earlier */
+  }
+
+  /* 3. Center the UGC Buttons ("Add Your Photo") */
+  .ugc-buttons {
+    display: flex;
+    justify-content: center; /* Centers the buttons in the middle of the screen */
+    gap: 12px;
+  }
+
+  /* 4. Ensure the Ethos Image remains centered (Previous Fix) */
+  .ethos-image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .ethos-image img {
+    padding-left: 0;
+    margin: 0 auto;
+    display: block;
+    max-width: 90%; 
+  }
+}
 /* =========================================
    MOBILE SCROLLABLE BANNERS (Under 768px)
 ========================================= */
@@ -2385,8 +2715,86 @@ header nav {
   }
 }
 
+/* Update #diamond-img style */
+#diamond-img {
+  /* Ensures the movement is buttery smooth */
+  will-change: transform;
+  /* Optional: Add a subtle shadow that moves */
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+}
+
+
+/* =======================================================
+   FINAL CENTERING OVERRIDE 
+   (Paste this at the VERY BOTTOM of your style tag)
+   ======================================================= */
+@media (max-width: 768px) {
+
+  /* 1. Force Ethos Text & Button to Center */
+  .ethos-content {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  /* 2. Force Ethos Image to Center */
+  .ethos-image {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin-bottom: 30px !important;
+  }
+  
+  .ethos-image img {
+    margin: 0 auto !important;
+    padding-left: 0 !important;
+    display: block !important;
+  }
+
+  /* 3. Force UGC Text to Center */
+  .ugc-section {
+    text-align: center !important;
+  }
+
+  /* 4. Force UGC Buttons to Center */
+  .ugc-buttons {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 12px !important;
+  }
+}
 </style>
 </head>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15 // Triggers when 15% of the element is visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        
+        // IF THE ELEMENT IS IN VIEW
+        if (entry.isIntersecting) {
+          entry.target.classList.add('motion-active');
+        } 
+        // IF THE ELEMENT SCROLLS OUT OF VIEW
+        else {
+          entry.target.classList.remove('motion-active'); // This resets it!
+        }
+        
+      });
+    }, observerOptions);
+
+    const hiddenElements = document.querySelectorAll('.motion-hidden');
+    hiddenElements.forEach((el) => observer.observe(el));
+  });
+</script>
 
 <body>
 <header>
@@ -2720,32 +3128,39 @@ header nav {
 
 
 <section class="ethos-section">
+  
   <div class="ugc-section">
-  <div class="ugc-container">
-    
-    <h2 class="ugc-title">
-      Have this item? Show us how you wear it.
-    </h2>
-    
-    <p class="ugc-subtitle">
-      Tag <strong>@kilangi</strong> and you could be featured right here
-    </p>
+    <div class="ugc-container">
+      
+      <h2 class="ugc-title motion-hidden">
+        Have this item? Show us how you wear it.
+      </h2>
+      
+      <p class="ugc-subtitle motion-hidden delay-100">
+        Tag <strong>@kilangi</strong> and you could be featured right here
+      </p>
 
-    <div class="ugc-buttons">
-      <button class="btn-ugc primary">Add Your Photo</button>
-      <button class="btn-ugc secondary">View Our Gallery</button>
+      <div class="ugc-buttons motion-hidden delay-200">
+        <button class="btn-ugc primary">Add Your Photo</button>
+        <button class="btn-ugc secondary">View Our Gallery</button>
+      </div>
+
+      <div class="ugc-gallery">
+        <div class="ugc-img-box motion-hidden delay-100"></div> 
+        <div class="ugc-img-box motion-hidden delay-200"></div> 
+        <div class="ugc-img-box motion-hidden delay-300"></div> 
+      </div>
+
     </div>
-
-    <div class="ugc-gallery">
-      <div class="ugc-img-box"></div> <div class="ugc-img-box"></div> <div class="ugc-img-box"></div> </div>
-
   </div>
-</div>
+
   <div class="ethos-container">
-    <div class="ethos-image">
+    
+    <div class="ethos-image motion-hidden motion-from-left">
       <img src="necklace_and_ring.png" alt="Jewelry Ethos Image">
     </div>
-    <div class="ethos-content">
+    
+    <div class="ethos-content motion-hidden motion-from-right">
       <h2>OUR ETHOS</h2>
       <h3>Every <span>Shape.</span><br>Every <span>Sparkle.</span></h3>
       <p>
@@ -2754,123 +3169,132 @@ header nav {
       </p>
       <button class="ethos-btn">Know More →</button>
     </div>
+
   </div>
 </section>
 
-<section class="premium-bg">
+<section class="premium-bg" id="premium-section">
   <div class="container">
- 
 
-  <div class="feature-section">
-    <div class="feature-left">
-      <img src="diamond.png" alt="Diamonds and tweezers" width="200px">
-    </div>
-    <div class="feature-right">
-      <h1 class="feature-heading">Not Just A Trend. It’s <br/>The <i>Future</i>.</h1>
-      <p class="feature-text">Our lab-grown gold and silver jewellery is crafted with the same brilliance and purity as mined metals without the compromise.</p>
+    <div class="feature-section">
       
-      <div class="icon-grid">
-        <div class="icon-item">
-        <img src="logo1.png" style="mix-blend-mode: multiply; width: 100px;" alt="925 Sterling Silver Icon">
-          <span class="icon-caption">925 Sterling Silver</span>
-        </div>
-        <div class="icon-item">
-          <img src="logo2.png" style="mix-blend-mode: multiply; width: 100px;"  alt="Certified Diamonds Icon">
-          <span class="icon-caption">Certified Diamonds</span>
-        </div>
-        <div class="icon-item">
-          <img src="logo3.png" style="mix-blend-mode: multiply; width: 100px;"  alt="Ethical Sourcing Icon">
-          <span class="icon-caption">Ethical Sourcing</span>
-        </div>
-        <div class="icon-item">
-          <img src="logo4.png" style="mix-blend-mode: multiply; width: 100px;"  alt="Free 15 Days Return Icon">
-          <span class="icon-caption">Free 15 Days Return & Exchange</span>
-        </div>
-        <div class="icon-item">
-          <img src="logo5.png" style="mix-blend-mode: multiply; width: 100px;"  alt="Customisable Designs Icon">
-          <span class="icon-caption">Customisable Designs</span>
-        </div>
-        <div class="icon-item">
-          <img src="logo6.png" style="mix-blend-mode: multiply; width: 100px;"  alt="BIS Hallmark Icon">
-          <span class="icon-caption">BIS Hallmark</span>
-        </div>
-      </div> </div> </div> </div>
+      <div class="feature-left motion-hidden motion-from-left">
+        <img src="diamond.png" id="diamond-img" alt="Diamonds and tweezers" width="200px">
+      </div>
+
+      <div class="feature-right">
+        
+        <h1 class="feature-heading motion-hidden motion-from-right">
+          Not Just A Trend. It’s <br/>The <i>Future</i>.
+        </h1>
+        
+        <p class="feature-text motion-hidden motion-from-right delay-100">
+          Our lab-grown gold and silver jewellery is crafted with the same brilliance and purity as mined metals without the compromise.
+        </p>
+        
+        <div class="icon-grid">
+          
+          <div class="icon-item motion-hidden delay-200">
+            <img src="logo1.png" style="mix-blend-mode: multiply; width: 100px;">
+            <span class="icon-caption">925 Sterling Silver</span>
+          </div>
+          
+          <div class="icon-item motion-hidden delay-300">
+            <img src="logo2.png" style="mix-blend-mode: multiply; width: 100px;">
+            <span class="icon-caption">Certified Diamonds</span>
+          </div>
+          
+          <div class="icon-item motion-hidden delay-400">
+            <img src="logo3.png" style="mix-blend-mode: multiply; width: 100px;">
+            <span class="icon-caption">Ethical Sourcing</span>
+          </div>
+          
+          <div class="icon-item motion-hidden delay-500">
+            <img src="logo4.png" style="mix-blend-mode: multiply; width: 100px;">
+            <span class="icon-caption">Free 15 Days Return</span>
+          </div>
+          
+          <div class="icon-item motion-hidden delay-600">
+            <img src="logo5.png" style="mix-blend-mode: multiply; width: 100px;">
+            <span class="icon-caption">Custom Designs</span>
+          </div>
+          
+          <div class="icon-item motion-hidden delay-600">
+            <img src="logo6.png" style="mix-blend-mode: multiply; width: 100px;">
+            <span class="icon-caption">BIS Hallmark</span>
+          </div>
+
+        </div> 
+      </div> 
+    </div> 
+  </div>
 </section>
 
 <section class="testimonials-section">
   <div class="testimonials-container">
 
-    <h2 class="testimonials-title">
+    <h2 class="testimonials-title motion-hidden">
       Voices of Our <span>Happy Customer</span>
     </h2>
 
-    <p class="testimonials-subtitle">
+    <p class="testimonials-subtitle motion-hidden delay-100">
       Every piece we create carries a story but nothing shines brighter than
       the words of those who wear them.
     </p>
 
     <div class="testimonials-grid">
 
-      <!-- Card 1 -->
-      <div class="testimonial-card">
+      <div class="testimonial-card motion-hidden delay-200">
         <img src="review1.png" alt="Diamonds and tweezers">
         <div class="stars">★★★★★</div>
         <h4>“So pretty!”</h4>
         <p>
           I recently ordered the ‘Golden Radiance Hoops’ from Kilangi, and I’m
-          absolutely in love! The craftsmanship is stunning, and the shine is
-          just perfect.
+          absolutely in love! The craftsmanship is stunning.
         </p>
         <span class="author">~ Harshad Mehta</span>
       </div>
 
-      <!-- Card 2 -->
-      <div class="testimonial-card">
+      <div class="testimonial-card motion-hidden delay-300">
         <img src="review2.png" alt="Customer Jewellery">
         <div class="stars">★★★★★</div>
         <h4>“So pretty!”</h4>
         <p>
           I recently ordered the ‘Golden Radiance Hoops’ from Kilangi, and I’m
-          absolutely in love! The craftsmanship is stunning, and the shine is
-          just perfect.
+          absolutely in love! The craftsmanship is stunning.
         </p>
         <span class="author">~ Harshad Mehta</span>
       </div>
 
-      <!-- Card 3 -->
-      <div class="testimonial-card">
+      <div class="testimonial-card motion-hidden delay-400">
         <img src="review3.png" alt="Customer Jewellery">
         <div class="stars">★★★★★</div>
         <h4>“So pretty!”</h4>
         <p>
           I recently ordered the ‘Golden Radiance Hoops’ from Kilangi, and I’m
-          absolutely in love! The craftsmanship is stunning, and the shine is
-          just perfect.
+          absolutely in love! The craftsmanship is stunning.
         </p>
         <span class="author">~ Harshad Mehta</span>
       </div>
 
-      <!-- Card 4 -->
-      <div class="testimonial-card">
+      <div class="testimonial-card motion-hidden delay-500">
         <img src="review4.png" alt="Customer Jewellery">
         <div class="stars">★★★★★</div>
         <h4>“So pretty!”</h4>
         <p>
           I recently ordered the ‘Golden Radiance Hoops’ from Kilangi, and I’m
-          absolutely in love! The craftsmanship is stunning, and the shine is
-          just perfect.
+          absolutely in love! The craftsmanship is stunning.
         </p>
         <span class="author">~ Harshad Mehta</span>
       </div>
 
     </div>
 
-    <button class="testimonial-btn">
+    <button class="testimonial-btn motion-hidden delay-600">
       Read More Review →
     </button>
 
   </div>
-
 </section>
 
 <section class="icon-text-section">
