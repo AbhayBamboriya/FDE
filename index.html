@@ -850,23 +850,20 @@ header nav {
 /* =========================================
    FRAMER-STYLE SCROLL ANIMATIONS
 ========================================= */
+/* =========================================
+   FRAMER-STYLE SCROLL ANIMATIONS
+========================================= */
 
 /* 1. Base State (Hidden) */
 .motion-hidden {
   opacity: 0;
-  transform: translateY(40px); /* Pushes element down */
+  transform: translateY(40px);
   transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), 
               transform 1s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: opacity, transform;
 }
 
-/* 2. Active State (Visible) - Added by JS */
-.motion-active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 3. Directional Variations */
+/* 2. Directional Variations (Define these BEFORE Active state) */
 .motion-from-left {
   transform: translateX(-50px);
 }
@@ -875,11 +872,17 @@ header nav {
   transform: translateX(50px);
 }
 
-/* 4. Stagger Delays (For the gallery images) */
+/* 3. Active State (Visible) - MUST BE LAST */
+/* This ensures the element snaps to center (0) when active */
+.motion-active {
+  opacity: 1;
+  transform: translate(0, 0) !important; /* Resets both X and Y to center */
+}
+
+/* 4. Stagger Delays */
 .delay-100 { transition-delay: 0.1s; }
 .delay-200 { transition-delay: 0.2s; }
 .delay-300 { transition-delay: 0.3s; }
-
 /* =========================================
    AMBIENT FLOATING EFFECT (No Hover Needed)
 ========================================= */
@@ -2728,41 +2731,252 @@ header nav {
    FINAL CENTERING OVERRIDE 
    (Paste this at the VERY BOTTOM of your style tag)
    ======================================================= */
+/* =======================================================
+   FINAL ABSOLUTE CENTERING FIX 
+   (Paste this at the VERY BOTTOM of your <style> section)
+   ======================================================= */
+/* =======================================================
+   FINAL NUCLEAR CENTER FIX (Paste at VERY BOTTOM of CSS)
+   ======================================================= */
 @media (max-width: 768px) {
 
-  /* 1. Force Ethos Text & Button to Center */
-  .ethos-content {
-    text-align: center !important;
+  /* --- 1. CENTER THE "OUR ETHOS" SECTION --- */
+  
+  /* Stack Image on top, Text below */
+  .ethos-container {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     width: 100% !important;
   }
 
-  /* 2. Force Ethos Image to Center */
+  /* Center the Image */
+  .ethos-image {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 20px !important;
+  }
+
+  .ethos-image img {
+    padding-left: 0 !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+  /* Center the Text Content */
+  .ethos-content {
+    text-align: center !important;
+    width: 100% !important;
+    padding: 0 15px !important;
+    /* Reset Flex to Block to ensure text-align works */
+    display: block !important; 
+  }
+
+  /* Force headings and paragraphs to center */
+  .ethos-content h2, 
+  .ethos-content h3, 
+  .ethos-content p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* CENTER THE ETHOS BUTTON */
+  .ethos-btn {
+    display: table !important; /* Trick to make margin:auto work strictly */
+    margin: 20px auto 0 auto !important;
+  }
+
+
+  /* --- 2. CENTER THE "HAVE THIS ITEM?" (UGC) SECTION --- */
+
+  .ugc-section {
+    text-align: center !important;
+    display: block !important;
+  }
+
+  .ugc-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* Center Title & Subtitle */
+  .ugc-title, 
+  .ugc-subtitle {
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  /* CENTER THE UGC BUTTONS ROW */
+  .ugc-buttons {
+    display: flex !important;
+    justify-content: center !important; /* Packs buttons in center */
+    gap: 12px !important;
+    width: 100% !important;
+    margin-bottom: 30px !important;
+  }
+
+  /* *** CRITICAL FIX: STOP BUTTONS FROM STRETCHING *** */
+  .btn-ugc {
+    flex: 0 0 auto !important; /* Prevents button from filling full width */
+    width: auto !important;    /* Only takes necessary width */
+    padding: 10px 20px !important;
+  }
+}
+
+/* =======================================================
+   BAAP FIX: FINAL CENTER OVERRIDE FOR MOBILE
+   (Paste this immediately before </style>)
+   ======================================================= */
+@media (max-width: 768px) {
+
+  /* 1. CONTAINER: Stack Items Vertically */
+  .ethos-container {
+    display: flex !important;
+    flex-direction: column !important; /* Image up, Text down */
+    align-items: center !important;    /* Align cross axis center */
+    width: 100% !important;
+  }
+
+  /* 2. IMAGE FIX (The main culprit was padding-left) */
   .ethos-image {
     display: flex !important;
     justify-content: center !important;
     width: 100% !important;
-    margin-bottom: 30px !important;
+    margin: 0 0 25px 0 !important; /* Bottom gap */
   }
-  
+
   .ethos-image img {
-    margin: 0 auto !important;
-    padding-left: 0 !important;
+    padding-left: 0 !important;  /* *** YEH HAI MAIN FIX *** */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin: 0 auto !important;   /* Center align */
     display: block !important;
+    max-width: 85% !important;   /* Prevent touching edges */
   }
 
-  /* 3. Force UGC Text to Center */
-  .ugc-section {
+  /* 3. TEXT CONTENT FIX */
+  .ethos-content {
     text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* Centers button */
+    width: 100% !important;
+    padding: 0 20px !important;     /* Safe distance from screen edge */
   }
 
-  /* 4. Force UGC Buttons to Center */
+  /* 4. FORCE ALL TEXT ELEMENTS TO CENTER */
+  .ethos-content h2, 
+  .ethos-content h3, 
+  .ethos-content p {
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  /* 5. BUTTON CENTERING */
+  .ethos-btn {
+    margin: 20px auto 0 auto !important;
+    display: inline-block !important;
+  }
+}
+/* =======================================================
+   FINAL & CORRECTED CENTER FIX (Paste at VERY BOTTOM)
+   ======================================================= */
+@media (max-width: 768px) {
+
+  /* --- 1. UGC SECTION (Have this item?) --- */
+  
+  /* Ensure the section takes full width and aligns text */
+  .ugc-section {
+    display: block !important;
+    text-align: center !important;
+    padding: 40px 20px !important;
+    width: 100% !important;
+  }
+
+  /* Flex column ensures items stack and center horizontally */
+  .ugc-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* Centers the div blocks horizontally */
+    width: 100% !important;
+  }
+
+  /* Force text centering */
+  .ugc-title, 
+  .ugc-subtitle {
+    text-align: center !important;
+    width: 100% !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Center the buttons row */
   .ugc-buttons {
     display: flex !important;
     justify-content: center !important;
     gap: 12px !important;
+    width: 100% !important;
+    margin-bottom: 30px !important;
+  }
+
+  /* --- 2. ETHOS SECTION (Our Ethos) --- */
+
+  /* Reset the container to Flex Column */
+  .ethos-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* Centers children (Image & Text Div) */
+    width: 100% !important;
+    gap: 30px !important; /* Space between Image and Text */
+  }
+
+  /* --- IMAGE FIX --- */
+  .ethos-image {
+    order: 1 !important; /* Ensure Image is on top */
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important; /* Centers the img tag inside this div */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .ethos-image img {
+    display: block !important;
+    margin: 0 auto !important; /* Margins auto centers block elements */
+    padding: 0 !important;
+    max-width: 100% !important;
+    /* Remove any transform shifts from previous CSS */
+    transform: none !important; 
+  }
+
+  /* --- TEXT FIX --- */
+  .ethos-content {
+    order: 2 !important; /* Ensure Text is below image */
+    width: 100% !important;
+    text-align: center !important; /* Centers text inside */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* Centers the button inside */
+    padding: 0 !important;
+  }
+
+  .ethos-content h2,
+  .ethos-content h3,
+  .ethos-content p {
+    text-align: center !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* --- BUTTON FIX --- */
+  .ethos-btn {
+    display: inline-block !important;
+    margin: 20px auto 0 auto !important; /* Top Auto Bottom Auto */
   }
 }
 </style>
